@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -40,6 +41,12 @@ public class LinkedListBagTest {
 
     }
 
+    @Test
+    @DisplayName("Should not be empty - bags with items are not empty")
+    public void testEmpty(){
+        assertFalse(bigBag2.isEmpty());
+    }
+
     public static void main(String[]args){
 
         /* This creates the object using the constructor from the LinkedListBag class which
@@ -72,8 +79,7 @@ public class LinkedListBagTest {
 
 
         /* This section will test the methods using bigBag2 */
-        System.out.println("This is testing the isEmpty method = " + bigBag2.isEmpty());
-        System.out.println("\n");
+
         System.out.println("This is testing the CurrentSize method = " + bigBag2.getCurrentSize());
         System.out.println("\n");
         System.out.println("This is testing the contains method = " + bigBag2.contains(pizza));
