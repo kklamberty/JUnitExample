@@ -9,22 +9,30 @@ class LinkedListBagTest {
     we want to declare it outside of any particular test */
     private static bagDataStructure<Item> bigBag2;
 
+    /* Creating the objects from the user defined data type*/
+    private static Item item1;
+    private static Item pizza;
+    private static Item lasagna;
+    private static Item chicken;
+    private static Item burrito;
+    private static Item noodles;
+    private static Item donut;
+    private static Item cheetos;
+
     @BeforeAll
-    static void setUp(){
+    public static void setUp(){
         /* Here, we give bigBag2 its initial value -
         it's a LinkedListBag of things of type Item */
         bigBag2 = new LinkedListBag<>();
 
-        /*I am creating the objects from the user defined data type*/
-        Item item1 = new Item("Tv",20000);
-        Item pizza = new Item("pizza",500);
-        Item lasagna = new Item("lasagna",900);
-        Item chicken = new Item("chicken",500);
-        Item burrito = new Item("burrito",200);
-        Item noodles = new Item("noodles",300);
-        Item donut = new Item("donut",100);
-        Item cheetos = new Item("cheetos",150);
-
+        item1 = new Item("Tv",20000);
+        pizza = new Item("pizza",500);
+        lasagna = new Item("lasagna",900);
+        chicken = new Item("chicken",500);
+        burrito = new Item("burrito",200);
+        noodles = new Item("noodles",300);
+        donut = new Item("donut",100);
+        cheetos = new Item("cheetos",150);
         /*I am going to add objects from the user defined type to the list*/
         System.out.println("Here I am adding an object using the user defined type item = " + bigBag2.add(item1));
         System.out.println("Here I am adding an object using the user defined type item = " + bigBag2.add(pizza));
@@ -51,6 +59,12 @@ class LinkedListBagTest {
     @DisplayName("Should have 8")
     void testGetCurrentSize(){
         assertEquals(8, bigBag2.getCurrentSize());
+    }
+
+    @Test
+    @DisplayName("Should contain specific item (pizza)")
+    void testContains() {
+        assertTrue(bigBag2.contains(pizza));
     }
 
     public static void main(String[]args){
@@ -83,12 +97,7 @@ class LinkedListBagTest {
         bigBag2.toArray();
         System.out.println("\n");
 
-
         /* This section will test the methods using bigBag2 */
-
-
-        System.out.println("This is testing the contains method = " + bigBag2.contains(pizza));
-        System.out.println("\n");
         System.out.println("This is testing the getFrequencyOf method = " + bigBag2.getFrequencyOf(burrito));
         System.out.println("\n");
         System.out.println("This is testing the removeRandom method = " + bigBag2.removeRandom());
