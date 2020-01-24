@@ -3,14 +3,14 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class LinkedListBagTest {
+class LinkedListBagTest {
 
     /* Since this bag of items will be used for several tests,
     we want to declare it outside of any particular test */
     private static bagDataStructure<Item> bigBag2;
 
     @BeforeAll
-    public static void setUp(){
+    static void setUp(){
         /* Here, we give bigBag2 its initial value -
         it's a LinkedListBag of things of type Item */
         bigBag2 = new LinkedListBag<>();
@@ -43,8 +43,14 @@ public class LinkedListBagTest {
 
     @Test
     @DisplayName("Should not be empty - bags with items are not empty")
-    public void testEmpty(){
+    void testEmpty(){
         assertFalse(bigBag2.isEmpty());
+    }
+
+    @Test
+    @DisplayName("Should have 8")
+    void testGetCurrentSize(){
+        assertEquals(8, bigBag2.getCurrentSize());
     }
 
     public static void main(String[]args){
@@ -80,8 +86,7 @@ public class LinkedListBagTest {
 
         /* This section will test the methods using bigBag2 */
 
-        System.out.println("This is testing the CurrentSize method = " + bigBag2.getCurrentSize());
-        System.out.println("\n");
+
         System.out.println("This is testing the contains method = " + bigBag2.contains(pizza));
         System.out.println("\n");
         System.out.println("This is testing the getFrequencyOf method = " + bigBag2.getFrequencyOf(burrito));
