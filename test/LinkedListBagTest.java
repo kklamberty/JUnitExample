@@ -51,13 +51,13 @@ class LinkedListBagTest {
 
     @Test
     @DisplayName("Should not be empty - bags with items are not empty")
-    void testEmpty(){
+    void testEmpty() {
         assertFalse(bigBag2.isEmpty());
     }
 
     @Test
     @DisplayName("Should have 8")
-    void testGetCurrentSize(){
+    void testGetCurrentSize() {
         assertEquals(8, bigBag2.getCurrentSize());
     }
 
@@ -65,6 +65,12 @@ class LinkedListBagTest {
     @DisplayName("Should contain specific item (pizza)")
     void testContains() {
         assertTrue(bigBag2.contains(pizza));
+    }
+
+    @Test
+    @DisplayName("Should count instances of a thing - 1 burrito")
+    void testGetFrequency() {
+        assertEquals(1, bigBag2.getFrequencyOf(burrito));
     }
 
     public static void main(String[]args){
@@ -98,8 +104,6 @@ class LinkedListBagTest {
         System.out.println("\n");
 
         /* This section will test the methods using bigBag2 */
-        System.out.println("This is testing the getFrequencyOf method = " + bigBag2.getFrequencyOf(burrito));
-        System.out.println("\n");
         System.out.println("This is testing the removeRandom method = " + bigBag2.removeRandom());
         System.out.println("\n");
         System.out.println("This is testing the removeSpecific method = " + bigBag2.removeSpecific(item1));
