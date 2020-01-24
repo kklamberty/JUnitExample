@@ -20,7 +20,7 @@ class LinkedListBagTest {
     private static Item cheetos;
 
     @BeforeAll
-    public static void setUp(){
+    static void setUp(){
         /* Here, we give bigBag2 its initial value -
         it's a LinkedListBag of things of type Item */
         bigBag2 = new LinkedListBag<>();
@@ -73,6 +73,13 @@ class LinkedListBagTest {
         assertEquals(1, bigBag2.getFrequencyOf(burrito));
     }
 
+    @Test
+    @DisplayName("Should remove a random thing")
+    void testRemoveRandom() {
+        bigBag2.removeRandom();
+        assertEquals(7, bigBag2.getCurrentSize());
+    }
+
     public static void main(String[]args){
 
         /* This creates the object using the constructor from the LinkedListBag class which
@@ -104,10 +111,6 @@ class LinkedListBagTest {
         System.out.println("\n");
 
         /* This section will test the methods using bigBag2 */
-        System.out.println("This is testing the removeRandom method = " + bigBag2.removeRandom());
-        System.out.println("\n");
-        System.out.println("This is testing the removeSpecific method = " + bigBag2.removeSpecific(item1));
-        System.out.println("\n");
 
         bigBag2.clear();
         System.out.println("The clear method was just used, but there is no return value so yeah");
